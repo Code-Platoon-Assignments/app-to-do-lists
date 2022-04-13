@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import ToDoAPI from "../api/ToDoAPI"
+import AddTaskList from "../components/AddTaskList"
+import TaskListSummary from "../components/TaskListSummary"
 
 function HomePage(props) {
   // states
@@ -19,7 +21,7 @@ function HomePage(props) {
   // render
   const renderTaskLists = () => {
     return taskLists.map((taskList, index) => {
-      return <Link key={ index } to={ `/task-lists/${taskList.id}` }><p>{ taskList.name }</p></Link>
+      return <TaskListSummary taskList={ taskList }/>
     })
   }
   
@@ -28,12 +30,7 @@ function HomePage(props) {
       <h2>Home Page</h2>
       <hr />
 
-      <form>
-        <label>New Task List: </label>
-        <input placeholder="enter name"/>
-        <input placeholder="enter description"/>
-        <button>Add Task List</button>
-      </form>
+      <AddTaskList />
       <hr />
 
       <h3>All Task Lists:</h3>

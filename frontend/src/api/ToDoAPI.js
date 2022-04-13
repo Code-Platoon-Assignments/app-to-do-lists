@@ -8,7 +8,7 @@ const tryCatchFetch = async (axiosCall) => {
     const response = await axiosCall()
     console.log("RESPONSE:", response)
     console.log("RESPONSE DATA:", response.data)
-    return response.data // this doesn't look like a promise, but gets converted to a promise due to "async"
+    return response.data // this doesn't look like we're returning a promise, but automatically gets converted to a promise due to "async" function behavior
   }
   catch (e) {
     console.error("tryCatchFetch ERROR:", e)
@@ -25,6 +25,15 @@ ToDoAPI.getAllTaskLists = async () => {
   return await tryCatchFetch(() => axios.get(`${BASE_URL}task-lists/`))
 }
 
+//// this does the same things as the async await above
+// ToDoAPI.getAllTaskLists2 = () => {
+//   return tryCatchFetch(() => axios.get(`${BASE_URL}task-lists/`))
+//     .then((data) => { return data })
+// }
+
+ToDoAPI.createTaskList = async (taskListData) => {
+  return await tryCatchFetch(() => axios.post(`${BASE_URL}task-lists/`, taskListData))
+}
 
 
 export default ToDoAPI
