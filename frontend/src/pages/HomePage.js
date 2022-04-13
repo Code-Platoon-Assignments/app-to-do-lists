@@ -18,10 +18,18 @@ function HomePage(props) {
     setTaskLists(data ? data : [])
   }
 
+  const removeTaskList = (deletedTaskListId) => {
+    // loadTaskLists()
+    const newTaskLists = taskLists.filter((taskList, index) => {
+      return taskList.id !== deletedTaskListId
+    })
+    setTaskLists(newTaskLists)
+  }
+
   // render
   const renderTaskLists = () => {
     return taskLists.map((taskList, index) => {
-      return <TaskListSummary taskList={ taskList }/>
+      return <TaskListSummary taskList={ taskList } removeTaskList={ removeTaskList } />
     })
   }
   

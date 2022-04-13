@@ -13,7 +13,8 @@ function AddTaskList(props) {
 
     const taskListData = {
       name: evt.target.elements["name"].value,
-      description: evt.target.elements["description"].value
+      description: evt.target.elements["description"].value,
+      tasks: []
     }
 
     console.log("SENDING task list data:", taskListData)

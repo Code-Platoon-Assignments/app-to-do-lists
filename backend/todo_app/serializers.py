@@ -10,6 +10,7 @@ class TaskListSerializer(serializers.ModelSerializer):
     
     all_done = serializers.SerializerMethodField(read_only=True)
     # SerializerMethodField() ... this means my data value will come from a method (function)
+    # tasks = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
 
     def get_all_done(self, instance): # MUST be name get_[whatever]
         return instance.get_all_tasks_complete()
