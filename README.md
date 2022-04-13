@@ -13,7 +13,7 @@ Your data model design should allow for the following features:
 - Each Task should have a due date. 
 
 ## Release 2: React Front End 
-Your front-end site should encorporate the following pages:
+Your front-end site should incorporate the following pages:
 - Home Page
   - Show a list of all the Task Lists, divided by completed and uncompleted  
   - Ability to create a new Task List
